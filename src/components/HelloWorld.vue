@@ -1,18 +1,33 @@
 <template>
-    <div class="main">
-        <div class="container">
+    <div class="container">
+        <div class="box">
             <ul>
-                <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-                <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-                <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
+                <li id="stop"><router-link
+                    :to="{ name: 'Activity' }">
+                        Stuff
+                    </router-link>
+                </li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Community Chat</a></li>
             </ul>
         </div>
     </div>
 </template>
 
 <script>
+// import router from '@/router'
+
+// const items = router.options.routes
+//   .map(route => ({
+//     title: route.name,
+//     to: {name: route.name},
+//   }));
+
 export default {
     name: 'HelloWorld',
+    // data: () => ({
+    //     items,
+    // }),
     props: {
         msg: String
     }
@@ -22,15 +37,40 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-div.main, div.container {
+/* canvas {
     height: 100vh;
     width: 100vw;
-}
+    position: absolute;
+    opacity: 20;
+    z-index: -1;
+} */
+/* :deep(header, .v-toolbar__content) {
+    display: none !important;
+} */
 div.container {
+    height: 100vh;
+    width: 100vw;
     align-items: center;
     display: flex;
     justify-content: center;
     text-align: center;
+    position: fixed;
+    z-index: -1;
+}
+
+.box {
+    width: 25%;
+    height: 35%;
+    margin: auto;
+    background-color: black;
+    z-index: 1;
+    border: 5px solid;
+    border-radius: 20px 20px 0px 0px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 li {
