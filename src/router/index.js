@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HelloWorld from '@/components/HelloWorld.vue'
+import Home from '@/components/Home.vue'
 import PdfViewer from '@/components/PdfView.vue';
 
 const router = createRouter({
@@ -8,7 +8,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'Home',
-            component: HelloWorld,
+            component: Home,
             meta: {
                 hideNavbar: true,
             }

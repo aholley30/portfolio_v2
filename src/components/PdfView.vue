@@ -21,21 +21,20 @@ export default {
 <style scoped>
 div.container {
     text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+    height: 75%;
 }
 iframe {
-  overflow: hidden;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  height: 100%;
-  width: 75%;
-  position: absolute;
-  inset: 0px;
-  margin: 155px auto;
-  z-index: -1;
+    position: absolute;
+    inset: 0px;
+    margin: 155px auto;
 }
 a {
     display: block;
     margin-bottom: 10px;
-    margin-top: 100px
+    margin-top: 100px;
+    color: white;
 }
 </style>
