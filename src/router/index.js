@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/components/Home.vue'
-import PdfViewer from '@/components/PdfView.vue';
+import Home from '@/views/Home.vue'
+import PdfViewer from '@/views/PdfView.vue';
+import ProjectList from '@/views/ProjectList.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,6 +18,14 @@ const router = createRouter({
             path: '/view-pdf',
             name: 'Activity',
             component: PdfViewer,
+            meta: {
+                hideNavbar: false,
+            }
+        },
+        {
+            path: '/projects',
+            name: 'Projects',
+            component: ProjectList,
             meta: {
                 hideNavbar: false,
             }

@@ -1,3 +1,6 @@
 10/19/2023
 
-Next should be the projects json file. It'll include title, tags, short description, links
+Next should be the projects json file. It'll include title, tags, short description, links.
+v-carousel with custom arrows, basic arrows.
+
+fix fs error.
