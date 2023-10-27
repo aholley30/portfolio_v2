@@ -3,4 +3,5 @@
 Next should be the projects json file. It'll include title, tags, short description, links.
 v-carousel with custom arrows, basic arrows.
 
+10/27/2023
 fix fs error.
