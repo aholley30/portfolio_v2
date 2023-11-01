@@ -24,17 +24,18 @@
 </template>
 
 <script setup>
-import fs from 'fs';
-import { ref } from 'vue';
 
-defineProps({
+import { ref } from 'vue';
+const fs = require('fs')
+
+const props = defineProps({
     projectTitle: String,
 });
 
-let sourceDirectory = './src/assets/project-images/' + $props.projectTitle + '/';
+let sourceDirectory = './src/assets/project-images/' + props.projectTitle + '/';
 const baseDirectory = './src/assets/project-images/';
 
-const files = ref(fs.readdirSync(sourceDirectory + $props.projectTitle));
+const files = ref(fs.readdirSync(sourceDirectory + props.projectTitle));
 if (files.value.length === 0) {
     sourceDirectory = baseDirectory + 'default/';
     files.value = fs.readdirSync(sourceDirectory);
