@@ -17,29 +17,52 @@
         <v-carousel-item
             v-for="file in files"
             :key="file"
-            :src="sourceDirectory + file"
+            :src="getImageUrl(sourceDirectory + file)"
             cover
         ></v-carousel-item>
     </v-carousel>
 </template>
 
 <script setup>
-
+// import { defineProps } from 'vue';
 import { ref } from 'vue';
-const fs = require('fs')
+// const fs = require('fs')
 
+// eslint-disable-next-line
 const props = defineProps({
     projectTitle: String,
 });
 
-let sourceDirectory = './src/assets/project-images/' + props.projectTitle + '/';
-const baseDirectory = './src/assets/project-images/';
+console.log(props.projectTitle);
 
-const files = ref(fs.readdirSync(sourceDirectory + props.projectTitle));
-if (files.value.length === 0) {
-    sourceDirectory = baseDirectory + 'default/';
-    files.value = fs.readdirSync(sourceDirectory);
+const files = ref([]);
+
+// eslint-disable-next-line
+const imageLF = IMAGE_LF;
+// eslint-disable-next-line
+console.log(imageLF);
+// console.log(JSON.parse(imageLF));
+const baseDirectory = '../assets/project-images/';
+const sourceDirectory = ref('');
+
+if (Object.prototype.hasOwnProperty.call(imageLF, props.projectTitle)) {
+    files.value =  + imageLF[props.projectTitle];
+    sourceDirectory.value = baseDirectory + props.projectTitle + '/';
+    console.log(files.value);
+} else {
+    files.value = imageLF['default'];
+    sourceDirectory.value = baseDirectory + 'default/';
 }
+
+const getImageUrl = (imageURL) => new URL(imageURL, import.meta.url);
+// let sourceDirectory = './src/assets/project-images/' + props.projectTitle + '/';
+// const baseDirectory = './src/assets/project-images/';
+
+// const files = ref(fs.readdirSync(sourceDirectory + props.projectTitle));
+// if (files.value.length === 0) {
+//     sourceDirectory = baseDirectory + 'default/';
+//     files.value = fs.readdirSync(sourceDirectory);
+// }
 
 
 

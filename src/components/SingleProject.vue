@@ -32,10 +32,13 @@
 // import { defineProps } from 'vue'
 import ImageCarousel from '@/components/ImageCarousel.vue'
 
-defineProps({
+// eslint-disable-next-line
+const props = defineProps({
     project: Array,
 });
-
+console.log('---');
+console.log(props.project);
+console.log('---');
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

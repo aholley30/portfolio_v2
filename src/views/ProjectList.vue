@@ -2,12 +2,12 @@
     <div class="container">
         <v-expansion-panels>
             <v-expansion-panel
-                v-for="project in projects"
+                v-for="project in projects['projects']"
                 :key="project.title"
             >
                 <v-expansion-panel-title>
                     {{ project.title }}
-                    <br>
+                    
                     <v-chip-group>
                         <v-chip
                             v-for="tag in project.tags"
@@ -29,7 +29,9 @@
 import projects from '@/assets/data/projects.json'
 import SingleProject from '@/components/SingleProject.vue'
 
-
+console.log('****t****')
+console.log(projects);
+console.log('*****b***')
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -40,6 +42,7 @@ div.container {
     width: 100%;
     z-index: -1;
     height: 75%;
+    margin-top: 80px;
 }
 div.links {
     display: inline;
