@@ -1,7 +1,11 @@
 <template>
     <div class="container">
-        <a href="https://drive.google.com/file/d/1LwYKIJ3_fs1t08xuut_Mizt1V5MHlBS3/preview?usp=drive_link" download="download">Download PDF</a>
-        <iframe :src="source1" width="75%" height="100%"></iframe>
+        <div class="row">
+            <a href="https://drive.google.com/file/d/1LwYKIJ3_fs1t08xuut_Mizt1V5MHlBS3/preview?usp=drive_link" download="download">Download PDF</a>
+        </div>
+        <div class="row">
+            <iframe :src="source1" width="75%" height="100%"></iframe>
+        </div>
     </div>
 </template>
 
@@ -17,19 +21,20 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div.container {
     text-align: center;
-    position: fixed;
     width: 100%;
     z-index: -1;
-    height: 75%;
+    height: 100%;
 }
 iframe {
     position: absolute;
     inset: 0px;
     margin: 155px auto;
+    width: 75%;
+    padding-bottom: 50px;
+    z-index: -1;
 }
 a {
     display: block;

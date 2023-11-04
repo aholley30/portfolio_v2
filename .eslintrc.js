@@ -13,7 +13,7 @@ module.exports = {
     },
     rules: {
       // Your custom rules or overrides go here
-      "vue/html-indent": ["warning", 4],
+      "vue/html-indent": ["warn", 4],
     },
   };
   

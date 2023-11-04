@@ -1,7 +1,7 @@
 {
     "projects": 
     [{
-        "name": "Sample Name",
+        "title": "Sample Name",
         "tags": ["tag1", "tag2", "tag3"],
         "description": "Sample Description",
         "links": [
@@ -16,7 +16,7 @@
         ]
     },
     {
-        "name": "Sample Name 2",
+        "title": "Sample Name 2",
         "tags": ["tag4", "tag5", "tag6"],
         "description": "A longer sample description that is more like the length of an actual description due to my terseness.",
         "links": [

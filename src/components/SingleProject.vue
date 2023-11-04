@@ -1,6 +1,5 @@
 <template>
-    <div class="container">
-        <h1 class="title"> {{ project.title }}</h1>
+    <div class="container project">
         <ImageCarousel :projectTitle="project.title" />
         <div class="links">
             <a
@@ -15,16 +14,7 @@
         <p class="description">
             {{ project.description }}
         </p>
-        <v-chip-group>
-            <v-chip
-                v-for="tag in project.tags"
-                :key="tag"
-                color="primary"
-                text-color="white"
-            >
-                {{ tag }}
-            </v-chip>
-        </v-chip-group>
+        <hr>
     </div>
 </template>
 
@@ -34,24 +24,25 @@ import ImageCarousel from '@/components/ImageCarousel.vue'
 
 // eslint-disable-next-line
 const props = defineProps({
-    project: Array,
+    project: Object,
 });
-console.log('---');
-console.log(props.project);
-console.log('---');
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-div.container {
+div.container.project {
     text-align: center;
-    /* position: fixed;
-    width: 100%;
-    height: 75%; */
+    display: hidden;
 }
 div.links {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+div.links a {
     display: inline;
     margin: 100px 10px 30px; /* top rl bottom; top right bottom left */
+    color: white;
+}
+hr {
     color: white;
 }
 </style>
