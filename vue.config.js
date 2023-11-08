@@ -7,13 +7,9 @@ const imageDirectories = fs.readdirSync(baseDirectory);
 let dirList = {};
 let temp = '';
 imageDirectories.forEach((imageFolderName) => {
-  // temp = 'pine' + imageFolderName;
   dirList[imageFolderName] = fs.readdirSync(baseDirectory + imageFolderName);
 });
-console.log(dirList);
-console.log(imageDirectories);
-console.log(JSON.stringify(dirList));
-console.log(JSON.parse(JSON.stringify(dirList)));
+
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {

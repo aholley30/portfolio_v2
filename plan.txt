@@ -5,3 +5,10 @@ v-carousel with custom arrows, basic arrows.
 
 10/27/2023
 fix fs error.
+
+11/7/2023
+Hide search bar in other pages
+Add in filtering by search bar
+Once connected and working, create filter by tag menu
+Add filter material icon (tune) to menu beside search, add separator
+Connect filters
