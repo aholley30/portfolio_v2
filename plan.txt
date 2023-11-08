@@ -12,3 +12,7 @@ Add in filtering by search bar
 Once connected and working, create filter by tag menu
 Add filter material icon (tune) to menu beside search, add separator
 Connect filters
+
+11/8/2023
+Design Filter menu
+connect filter menu to project list
