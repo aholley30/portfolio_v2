@@ -25,6 +25,11 @@
                     icon="mdi-magnify"
                     @click="isShown = !isShown">
                 </v-btn>
+                <v-divider
+                    inset
+                    vertical>
+                </v-divider>
+                <FilterMenu v-show="isProjects"/>
             </v-app-bar>
             <v-navigation-drawer v-model="drawer" temporary>
                 <v-list>
@@ -45,6 +50,7 @@
 import { ref, watch, defineProps, computed } from 'vue';
 import router from '@/router'
 import { useFilterStore } from '@/stores/filterStore'
+import FilterMenu from '@/components/FilterMenu'
 
 const items = router.options.routes
     .map(route => ({

@@ -1,16 +1,17 @@
 <template>
     <div class="text-center">
       <v-menu
+        id="menu"
         v-model="menu"
+        location="bottom"
         :close-on-content-click="false"
-        location="end"
       >
         <template v-slot:activator="{ props }">
           <v-btn
-            color="indigo"
-            v-bind="props"
+          variant="text"
+          icon="mdi-tune"
+          v-bind="props"
           >
-            Filtering Options
           </v-btn>
         </template>
   
@@ -85,3 +86,8 @@
     }),
   }
 </script>
+<style scoped>
+#menu {
+  color:white;
+}
+</style>
