@@ -10,7 +10,7 @@
                 @click="showHideProject"
             >
                 <div class="row title">
-                    <div class="col">
+                    <div class="p-name col">
                         {{ project.title }}
                     </div>
                 </div>
@@ -20,6 +20,8 @@
                             <v-chip
                                 v-for="tag in project.tags"
                                 :key="tag"
+                                :class="project.title"
+                                class="tag"
                                 color="primary"
                                 text-color="white"
                             >
@@ -63,9 +65,12 @@ div.row.expansion-item {
 div.row.header:hover {
     cursor: pointer;
 }
+div.p-name {
+    padding-left: 24px;
+}
 div.row.title {
     font-size: initial;
-    transition: font-size 1s ease .2s;
+    transition: font-size 0.5s ease .2s;
 }
 div.row.title.expanded {
     font-size: x-large;

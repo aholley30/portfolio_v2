@@ -37,10 +37,11 @@ const files = ref([]);
 const imageLF = IMAGE_LF;
 const baseDirectory = './project-images/';
 const sourceDirectory = ref('');
+const spacelessName = props.projectTitle.replace( /\s/g, '');
 
-if (Object.prototype.hasOwnProperty.call(imageLF, props.projectTitle)) {
-    files.value = imageLF[props.projectTitle];
-    sourceDirectory.value = baseDirectory + props.projectTitle.replace( /\s/g, '') + '/';
+if (Object.prototype.hasOwnProperty.call(imageLF, spacelessName)) {
+    files.value = imageLF[spacelessName];
+    sourceDirectory.value = baseDirectory + spacelessName + '/';
 } else {
     files.value = imageLF['default'];
     sourceDirectory.value = baseDirectory + 'default/';

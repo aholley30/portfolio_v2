@@ -7,7 +7,22 @@
                 ></v-app-bar-nav-icon>
                 <v-toolbar-title>{{ $props.pageTitle }}</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-btn variant="text" icon="mdi-magnify"></v-btn>
+                <v-slide-x-reverse-transition>
+                    <v-text-field
+                        v-show="isShown"
+                        ref="searchField"
+                        v-model="search"
+                        label="Search"
+                        single-line
+                        variant="underlined"
+                    >
+                    </v-text-field>
+                </v-slide-x-reverse-transition>
+                <v-btn
+                    variant="text" 
+                    icon="mdi-magnify"
+                    @click="isShown = !isShown">
+                </v-btn>
             </v-app-bar>
             <v-navigation-drawer v-model="drawer" temporary>
                 <v-list>
@@ -37,6 +52,8 @@ export default {
     data: () => ({
         drawer: false,
         group: null,
+        isShown: false,
+        search: '',
         items,
     }),
     
@@ -62,5 +79,8 @@ export default {
 
 :deep(.v-navigation-drawer__content) {
     color: white;
+}
+.filter-options {
+    display:block;
 }
 </style>
