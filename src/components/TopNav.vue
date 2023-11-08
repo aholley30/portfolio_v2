@@ -5,7 +5,7 @@
                 color="white"
                 @click.stop="drawer = !drawer"
                 ></v-app-bar-nav-icon>
-                <v-toolbar-title>{{ $props.pageTitle }}</v-toolbar-title>
+                <v-toolbar-title>{{ props.pageTitle }}</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-slide-x-reverse-transition>
                     <v-text-field
@@ -19,6 +19,7 @@
                     </v-text-field>
                 </v-slide-x-reverse-transition>
                 <v-btn
+                    v-show="isProjects"
                     variant="text" 
                     icon="mdi-magnify"
                     @click="isShown = !isShown">
@@ -39,7 +40,8 @@
     </v-layout>
 </template>
 
-<script>
+<script setup>
+import { ref, watch, defineProps, computed } from 'vue';
 import router from '@/router'
 
 const items = router.options.routes
@@ -48,24 +50,20 @@ const items = router.options.routes
         to: {name: route.name},
 }));
 
-export default {
-    data: () => ({
-        drawer: false,
-        group: null,
-        isShown: false,
-        search: '',
-        items,
-    }),
-    
-    watch: {
-        group() {
-            this.drawer = false
-        },
-    },
-    props: {
-        pageTitle: String,
-    },
-}
+const props = defineProps({
+  pageTitle: String,
+});
+
+const drawer = ref(false);
+const group = ref(null);
+const isShown = ref(false);
+const search = ref('');
+const isProjects = computed(() => props.pageTitle === 'Projects');
+
+watch(group, () => {
+  drawer.value = false;
+});
+
 </script>
 <style scoped>
 * {
