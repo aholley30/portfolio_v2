@@ -1,9 +1,8 @@
 <template>
     <div class="container">
         <div class="row expansion-item"
-            v-for="project in projects['projects']"
+            v-for="project in selections"
             :key="project.title"
-            
         >
             <div
                 class="row header text-center"
@@ -39,8 +38,14 @@
 </template>
 
 <script setup>
+import { watch, computed, ref } from 'vue';
 import projects from '@/assets/data/projects.json'
 import SingleProject from '@/components/SingleProject.vue'
+import { useFilterStore } from '@/stores/filterStore';
+
+const selected = ref(projects.projects);
+const filterStore = useFilterStore();
+const selections = ref(computed(() => [...selected.value]));
 
 const showHideProject = (event) => {
     const project = event.currentTarget.parentNode.querySelector('div.project');
@@ -49,6 +54,23 @@ const showHideProject = (event) => {
     titleText.classList.toggle('expanded');
     // TODO: add animation
 }
+
+const filterProjectTitles = (searchTerm) => {
+    if (searchTerm) {
+        selected.value = projects.projects.filter(
+            project => project.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    } else {
+        selected.value = projects.projects;
+    }
+};
+
+watch(
+    () => filterStore.$state.searchTerm,
+    () => {
+      filterProjectTitles(filterStore.searchTerm);
+    },
+  )
     
 </script>
 

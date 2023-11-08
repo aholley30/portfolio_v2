@@ -29,6 +29,21 @@
                 "url": "https://www.google.com"
             }
         ]
+    },
+    {
+        "title": "Monster Chomp",
+        "tags": ["tag2", "tag6", "tag1"],
+        "description": "A very mediocre description.",
+        "links": [
+            {
+                "name": "Sample Link",
+                "url": "https://www.google.com"
+            },
+            {
+                "name": "Sample Link 2",
+                "url": "https://www.google.com"
+            }
+        ]
     }
     ]
 }

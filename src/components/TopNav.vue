@@ -15,6 +15,7 @@
                         label="Search"
                         single-line
                         variant="underlined"
+                        @update:model-value="val => filterStore.setSearchTerm(val)"
                     >
                     </v-text-field>
                 </v-slide-x-reverse-transition>
@@ -43,12 +44,15 @@
 <script setup>
 import { ref, watch, defineProps, computed } from 'vue';
 import router from '@/router'
+import { useFilterStore } from '@/stores/filterStore'
 
 const items = router.options.routes
     .map(route => ({
         title: route.name,
         to: {name: route.name},
 }));
+
+const filterStore = useFilterStore();
 
 const props = defineProps({
   pageTitle: String,
