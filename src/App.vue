@@ -1,8 +1,9 @@
 <template>
-  <TopNav
-    v-if="showNavbar"
-    :pageTitle="pageTitle"/>
-  <RouterView />
+    <TopNav
+        v-if="showNavbar"
+        :page-title="pageTitle"
+    />
+    <RouterView />
 </template>
 
 <script>
@@ -12,14 +13,14 @@ import TopNav from '@/components/TopNav.vue';
 
 export default {
   name: 'App',
-  data: () => ({
-    showNavbar: router.currentRoute.value.name !== 'Home',
-    pageTitle: router.currentRoute.value.name,
-  }),
   components: {
     RouterView,
     TopNav,
   },
+  data: () => ({
+    showNavbar: router.currentRoute.value.name !== 'Home',
+    pageTitle: router.currentRoute.value.name,
+  }),
   watch: {
     $route (to) {
       this.showNavbar = to.name !== 'Home';

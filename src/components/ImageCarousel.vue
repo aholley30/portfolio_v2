@@ -4,14 +4,20 @@
         hide-delimiter-background
         height="300"
     >
-        <template v-slot:prev="{ props }">
-            <v-btn color="transparent" @click="props.onClick">
-                <i class="mdi mdi-chevron-left"></i>
+        <template #prev="{ prevProps }">
+            <v-btn
+                color="transparent"
+                @click="prevProps.onClick"
+            >
+                <i class="mdi mdi-chevron-left" />
             </v-btn>
         </template>
-        <template v-slot:next="{ props }">
-            <v-btn color="transparent" @click="props.onClick">
-                <i class="mdi mdi-chevron-right"></i>
+        <template #next="{ nextProps }">
+            <v-btn
+                color="transparent"
+                @click="nextProps.onClick"
+            >
+                <i class="mdi mdi-chevron-right" />
             </v-btn>
         </template>
         <v-carousel-item
@@ -19,7 +25,7 @@
             :key="file"
             :src="sourceDirectory + file"
             cover
-        ></v-carousel-item>
+        />
     </v-carousel>
 </template>
 
@@ -28,7 +34,10 @@ import { ref } from 'vue';
 
 // eslint-disable-next-line
 const props = defineProps({
-    projectTitle: String,
+    projectTitle: {
+        type: String,
+        required: true
+    },
 });
 
 const files = ref([]);

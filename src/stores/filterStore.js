@@ -8,7 +8,6 @@ export const useFilterStore = defineStore({
     }),
     actions: {
         setSearchTerm(searchTerm) {
-            console.log(searchTerm);
             this.searchTerm = searchTerm;
         },
         setFilters(filters) {

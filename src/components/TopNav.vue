@@ -1,44 +1,49 @@
 <template>
-        <v-layout>
-            <v-app-bar color="black" prominent>
-                <v-app-bar-nav-icon
+    <v-layout>
+        <v-app-bar
+            color="black"
+            prominent
+        >
+            <v-app-bar-nav-icon
                 color="white"
                 @click.stop="drawer = !drawer"
-                ></v-app-bar-nav-icon>
-                <v-toolbar-title>{{ props.pageTitle }}</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-slide-x-reverse-transition>
-                    <v-text-field
-                        v-show="isShown"
-                        ref="searchField"
-                        v-model="search"
-                        label="Search"
-                        single-line
-                        variant="underlined"
-                        @update:model-value="val => filterStore.setSearchTerm(val)"
-                    >
-                    </v-text-field>
-                </v-slide-x-reverse-transition>
-                <v-btn
-                    v-show="isProjects"
-                    variant="text" 
-                    icon="mdi-magnify"
-                    @click="isShown = !isShown">
-                </v-btn>
-                <v-divider
-                    inset
-                    vertical>
-                </v-divider>
-                <FilterMenu v-show="isProjects"/>
-            </v-app-bar>
-            <v-navigation-drawer v-model="drawer" temporary>
-                <v-list>
-                    <v-list-item
+            />
+            <v-toolbar-title>{{ props.pageTitle }}</v-toolbar-title>
+            <v-spacer />
+            <v-slide-x-reverse-transition>
+                <v-text-field
+                    v-show="isShown"
+                    ref="searchField"
+                    v-model="search"
+                    label="Search"
+                    single-line
+                    variant="underlined"
+                    @update:model-value="val => filterStore.setSearchTerm(val)"
+                />
+            </v-slide-x-reverse-transition>
+            <v-btn
+                v-show="isProjects"
+                variant="text" 
+                icon="mdi-magnify"
+                @click="isShown = !isShown"
+            />
+            <v-divider
+                inset
+                vertical
+            />
+            <FilterMenu v-show="isProjects" />
+        </v-app-bar>
+        <v-navigation-drawer
+            v-model="drawer"
+            temporary
+        >
+            <v-list>
+                <v-list-item
                     v-for="item in items"
                     :key="item.title"
                     :to="item.to"
                     :item="item.title"
-                    >
+                >
                     {{ item.title }}
                 </v-list-item>
             </v-list>
@@ -61,7 +66,10 @@ const items = router.options.routes
 const filterStore = useFilterStore();
 
 const props = defineProps({
-  pageTitle: String,
+    pageTitle: {
+      type: String,
+      required: true
+    },
 });
 
 const drawer = ref(false);

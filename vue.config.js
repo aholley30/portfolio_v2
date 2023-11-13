@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const baseDirectory = './src/assets/project-images/';
 const imageDirectories = fs.readdirSync(baseDirectory);
 let dirList = {};
-let temp = '';
+
 imageDirectories.forEach((imageFolderName) => {
   dirList[imageFolderName] = fs.readdirSync(baseDirectory + imageFolderName);
 });

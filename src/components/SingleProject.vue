@@ -1,11 +1,11 @@
 <template>
     <div class="container project">
-        <ImageCarousel :projectTitle="project.title" />
+        <ImageCarousel :project-title="project.title" />
         <div class="links">
             <a
-            v-for="link in project.links"
-            :key="link.name"
-            :href="link.url"
+                v-for="link in project.links"
+                :key="link.name"
+                :href="link.url"
             >
                 {{ link.name }}
             </a>
@@ -24,7 +24,10 @@ import ImageCarousel from '@/components/ImageCarousel.vue'
 
 // eslint-disable-next-line
 const props = defineProps({
-    project: Object,
+    project: {
+      type: Object,
+      required: true
+    },
 });
 </script>
 

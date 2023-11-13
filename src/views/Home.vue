@@ -2,8 +2,10 @@
     <div class="container">
         <div class="box">
             <ul>
-                <li id="stop"><router-link
-                    :to="{ name: 'Activity' }">
+                <li id="stop">
+                    <router-link
+                        :to="{ name: 'Activity' }"
+                    >
                         Stuff
                     </router-link>
                 </li>
@@ -19,7 +21,10 @@
 export default {
     name: 'HelloWorld',
     props: {
-        msg: String
+        msg: {
+            type: String,
+            required: true
+        },
     }
 }
 

@@ -1,8 +1,9 @@
 <template>
     <div class="container">
-        <div class="row expansion-item"
+        <div
             v-for="project in selections"
             :key="project.title"
+            class="row expansion-item"
         >
             <div
                 class="row header text-center"
@@ -24,7 +25,7 @@
                                 color="primary"
                                 text-color="white"
                             >
-                            {{ tag }}
+                                {{ tag }}
                             </v-chip>
                         </v-chip-group>
                     </div>

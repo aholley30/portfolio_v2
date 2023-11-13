@@ -1,10 +1,17 @@
 <template>
     <div class="container">
         <div class="row">
-            <a href="https://drive.google.com/file/d/1LwYKIJ3_fs1t08xuut_Mizt1V5MHlBS3/preview?usp=drive_link" download="download">Download PDF</a>
+            <a
+                href="https://drive.google.com/file/d/1LwYKIJ3_fs1t08xuut_Mizt1V5MHlBS3/preview?usp=drive_link"
+                download="download"
+            >Download PDF</a>
         </div>
         <div class="row">
-            <iframe :src="source1" width="75%" height="100%"></iframe>
+            <iframe
+                :src="source1"
+                width="75%"
+                height="100%"
+            />
         </div>
     </div>
 </template>
