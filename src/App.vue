@@ -35,6 +35,6 @@ export default {
   font-family: 'Courier New', Courier, monospace;
 }
 html, body {
-  background-color: black !important;
+  background-color: #0c0c0c !important;
 }
 </style>

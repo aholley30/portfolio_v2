@@ -4,18 +4,18 @@
         hide-delimiter-background
         height="300"
     >
-        <template #prev="{ prevProps }">
+        <template #prev="{ props }">
             <v-btn
                 color="transparent"
-                @click="prevProps.onClick"
+                @click="props.onClick"
             >
                 <i class="mdi mdi-chevron-left" />
             </v-btn>
         </template>
-        <template #next="{ nextProps }">
+        <template #next="{ props }">
             <v-btn
                 color="transparent"
-                @click="nextProps.onClick"
+                @click="props.onClick"
             >
                 <i class="mdi mdi-chevron-right" />
             </v-btn>

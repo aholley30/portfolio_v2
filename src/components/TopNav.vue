@@ -1,11 +1,11 @@
 <template>
     <v-layout>
         <v-app-bar
-            color="black"
-            prominent
+            color="#0c0c0c"
+            elevation="0"
         >
             <v-app-bar-nav-icon
-                color="white"
+                color="grey-lighten-5"
                 @click.stop="drawer = !drawer"
             />
             <v-toolbar-title>{{ props.pageTitle }}</v-toolbar-title>
@@ -23,7 +23,7 @@
             </v-slide-x-reverse-transition>
             <v-btn
                 v-show="isProjects"
-                variant="text" 
+                variant="text"
                 icon="mdi-magnify"
                 @click="isShown = !isShown"
             />
