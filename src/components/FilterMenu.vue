@@ -13,80 +13,103 @@
                     v-bind="props"
                 />
             </template>
-  
-            <v-card min-width="300">
+            <v-card
+                min-width="300"
+                max-width="400"
+                class="actual-menu"
+            >
                 <v-list>
-                    <v-list-item
-                        prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg"
-                        title="John Leider"
-                        subtitle="Founder of Vuetify"
+                    <div
+                        v-for="tagGroups in tags"
+                        :key="tagGroups.title"
                     >
-                        <template #append>
-                            <v-btn
-                                variant="text"
-                                :class="fav ? 'text-red' : ''"
-                                icon="mdi-heart"
-                                @click="fav = !fav"
-                            />
-                        </template>
-                    </v-list-item>
+                        <h4 class="tag-group-title">
+                            {{ tagGroups.title }}
+                        </h4>
+                        <v-chip-group
+                            filter
+                            column
+                            :multiple="tagGroups.multiple"
+                            selected-class="text-primary"
+                            class="justify-center"
+                        >
+                            <v-chip
+                                v-for="(item, index) in tagGroups.list"
+                                :key="index"
+                            >
+                            {{ item }}
+                            </v-chip>
+                        </v-chip-group>
+                    </div>
                 </v-list>
-  
-                <v-divider />
-  
-                <v-list>
-                    <v-list-item>
-                        <v-switch
-                            v-model="message"
-                            color="purple"
-                            label="Enable messages"
-                            hide-details
-                        />
-                    </v-list-item>
-  
-                    <v-list-item>
-                        <v-switch
-                            v-model="hints"
-                            color="purple"
-                            label="Enable hints"
-                            hide-details
-                        />
-                    </v-list-item>
-                </v-list>
-  
-                <v-card-actions>
+                <v-list class="text-center mb-4 mt-6">
                     <v-spacer />
-  
                     <v-btn
-                        variant="text"
+                        color="#0c0c0c"
                         @click="menu = false"
+                        elevated
+                        elevation="4"
+                        class="mr-6"
                     >
                         Cancel
                     </v-btn>
                     <v-btn
-                        color="primary"
-                        variant="text"
+                        color="rgb(62,55,85)"
                         @click="menu = false"
+                        elevated
+                        elevation="4"
                     >
                         Save
                     </v-btn>
-                </v-card-actions>
+                </v-list>
             </v-card>
         </v-menu>
     </div>
 </template>
-  <script>
-  export default {
-    data: () => ({
-      fav: true,
-      menu: false,
-      message: false,
-      hints: true,
-    }),
+<script>
+
+const tags = [
+  {
+    title: 'Languages',
+    multiple: true,
+    list: ['C++', 'PHP', 'Java', 'Javascript', 'Python', 'Assembly', 'Matlab', 'HTML', 'CSS']
+  },
+  {
+    title: 'Frameworks/Libraries',
+    multiple: true,
+    list: ['Vue 3', 'Twig', 'Scipy', 'Matplotlib', 'Symfony', 'OpenGL']
+  },
+  {
+    title: 'IDEs',
+    multiple: false,
+    list: ['Visual Studio', 'Clion', 'IntelliJ']
+  },
+  {
+    title: 'Primary Motivation',
+    multiple: false,
+    list: ['Personal Development', 'School']
+  },
+  {
+    title: 'Environment',
+    multiple: false,
+    list: ['Linux', 'Mac OS', 'Windows']
   }
+];
+export default {
+    data: () => ({
+        menu: false,
+        hints: true,
+        tags,
+    }),
+}
 </script>
 <style scoped>
-#menu {
-  color:white;
+.actual-menu {
+  color:whitesmoke;
+  background-color: rgb(46, 44, 44);
+}
+.tag-group-title {
+    text-align: center;
+    margin-top: 15px;
 }
 </style>
