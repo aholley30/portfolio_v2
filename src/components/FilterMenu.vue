@@ -3,7 +3,7 @@
         <v-menu
             id="menu"
             v-model="menu"
-            location="bottom"
+            location="left"
             :close-on-content-click="false"
         >
             <template #activator="{ props }">
@@ -23,9 +23,9 @@
                         v-for="tagGroups in tags"
                         :key="tagGroups.title"
                     >
-                        <h4 class="tag-group-title">
+                        <h6 class="tag-group-title">
                             {{ tagGroups.title }}
-                        </h4>
+                        </h6>
                         <v-chip-group
                             filter
                             column
@@ -37,7 +37,7 @@
                                 v-for="(item, index) in tagGroups.list"
                                 :key="index"
                             >
-                            {{ item }}
+                                {{ item }}
                             </v-chip>
                         </v-chip-group>
                     </div>
@@ -46,18 +46,18 @@
                     <v-spacer />
                     <v-btn
                         color="#0c0c0c"
-                        @click="menu = false"
                         elevated
                         elevation="4"
                         class="mr-6"
+                        @click="menu = false"
                     >
                         Cancel
                     </v-btn>
                     <v-btn
                         color="rgb(62,55,85)"
-                        @click="menu = false"
                         elevated
                         elevation="4"
+                        @click="menu = false"
                     >
                         Save
                     </v-btn>

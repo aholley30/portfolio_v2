@@ -7,11 +7,16 @@
             >Download PDF</a>
         </div>
         <div class="row">
-            <iframe
-                :src="source1"
-                width="75%"
-                height="100%"
-            />
+            <v-skeleton-loader
+                loading="loading"
+            >
+                <iframe
+                    :src="source1"
+                    width="75%"
+                    height="100%"
+                    onload="loading = false"
+                />
+            </v-skeleton-loader>
         </div>
     </div>
 </template>
@@ -21,6 +26,7 @@
 export default {
     data() {
         return {
+            loading: true,
             source1: 'https://drive.google.com/file/d/1LwYKIJ3_fs1t08xuut_Mizt1V5MHlBS3/preview?usp=drive_link',
         }
     },
